@@ -8,6 +8,8 @@ This project implements a gesture classification system using TensorFlow Lite on
 gestureClassification/
 ├── 1_Collect_data.py          # Script to collect gesture data from ESP32 camera
 ├── 2_Train.ipynb              # Jupyter notebook for training the model
+├── 3_OnnxToTf.py              # Script for converting ONNX model to TensorFlow format
+├── 4_TFtofloat32.py           # Script for converting TensorFlow model to float32 format
 ├── 5_TftoArrayquantized(4_alternative).py  # Script for converting TensorFlow model to TFLite format
 ├── README.md                   # Project overview and documentation
 ├── requirements.txt            # Python dependencies
