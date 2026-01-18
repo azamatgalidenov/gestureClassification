@@ -15,9 +15,6 @@ gestureClassification/
 ├── requirements.txt            # Python dependencies
 ├── Arduino_TensorFlowLite_ESP32/ # Arduino Libs
 ├── CameraWebServer/            # Web server for streaming camera data from ESP32
-│   ├── app_httpd.cpp          # HTTP server implementation
-│   ├── CameraWebServer.ino     # Main Arduino sketch
-│   └── board_config.h          # Board configuration
 ├── data/                       # Directory for storing gesture training data
 │   ├── paper/
 │   ├── rock/
