@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 # 1. CONVERT SAVEDMODEL TO TFLITE
-converter = tf.lite.TFLiteConverter.from_saved_model("models/model_tf")
+converter = tf.lite.TFLiteConverter.from_saved_model("trained_models/model_tf")
 
 # Perform the conversion (Float32)
 tflite_model = converter.convert()
@@ -11,7 +11,7 @@ model_len = len(tflite_model)
 print(f"Model Size: {model_len / 1024:.2f} KB")
 
 # 2. GENERATE C HEADER FILE (.h)
-with open("models/modelnooptimized.h", "w", encoding="utf-8") as f:
+with open("trained_models/modelnooptimized.h", "w", encoding="utf-8") as f:
     
     # <pgmspace.h>: Required for PROGMEM (storing data in Flash instead of RAM).
     f.write("#include <pgmspace.h>\n\n")
@@ -37,4 +37,4 @@ with open("models/modelnooptimized.h", "w", encoding="utf-8") as f:
 
     f.write("};\n")
 
-print("Success: models/modelnooptimized.h created.")
+print("Success: trained_models/modelnooptimized.h created.")

@@ -4,7 +4,7 @@ import os
 import cv2
 
 # CONFIGURATION
-MODEL_PATH = "models/model_tf"
+MODEL_PATH = "trained_models/model_tf"
 DATASET_DIR = "dataset"
 IMG_SIZE = 96
 CALIBRATION_IMAGES = 50  # Number of images to use for calibration
@@ -77,7 +77,7 @@ print(f"Quantized Size: {model_len / 1024:.2f} KB")
 
 # 4. EXPORT TO C HEADER
 print("Generating header file...")
-with open("models/modelquantized.h", "w", encoding="utf-8") as f:
+with open("trained_models/modelquantized.h", "w", encoding="utf-8") as f:
     f.write("// Auto-generated Int8 TFLite Model\n")
     f.write("#include <pgmspace.h>\n\n")
     f.write(f"const int g_model_len = {model_len};\n")
@@ -95,4 +95,4 @@ with open("models/modelquantized.h", "w", encoding="utf-8") as f:
         
     f.write("};\n")
 
-print("Success: models/modelquantized.h ready for ESP32.")
+print("Success: trained_models/modelquantized.h ready for ESP32.")
