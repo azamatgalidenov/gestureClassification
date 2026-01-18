@@ -9,8 +9,8 @@ gestureClassification/
 ├── 1_Collect_data.py          # Script to collect gesture data from ESP32 camera
 ├── 2_Train.ipynb              # Jupyter notebook for training the model
 ├── 3_OnnxToTf.py              # Script for converting ONNX model to TensorFlow format
-├── 4_TFtofloat32.py           # Script for converting TensorFlow model to float32 format
-├── 5_TftoArrayquantized(4_alternative).py  # Script for converting TensorFlow model to TFLite format
+├── 4_TFtofloat32.py           # Script for converting TensorFlow model to TfLite float32 format
+├── 5_TftoArrayquantized(4_alternative).py  # Script for converting TensorFlow model to TfLite quantized format
 ├── README.md                   # Project overview and documentation
 ├── requirements.txt            # Python dependencies
 ├── Arduino_TensorFlowLite_ESP32/ # Arduino Libs
@@ -25,7 +25,11 @@ gestureClassification/
 │   └── modelquantized.h        # Model header file (quantized)
 └── trained_models/             # Directory for storing trained models
     ├── esp32_gesture_model.pth # PyTorch model
-    └── esp32_model.onnx        # ONNX model format
+    ├── esp32_model.onnx        # ONNX model format
+    ├── model_tf/               # TensorFlow SavedModel format
+    ├── modelnooptimized.h      # C header file (unoptimized model)
+    └── modelquantized.h        # C header file (quantized model)
+
 ```
 
 ## Workflow
@@ -106,6 +110,18 @@ Deploy the quantized model to ESP32 using the Arduino IDE.
 1. Install TensorFlow Lite for Microcontrollers library
 2. Copy the generated model header file to your sketch
 3. Upload the Arduino sketch to your ESP32
+
+## Trained Models
+
+The `trained_models/` directory contains the following model formats:
+
+- **esp32_gesture_model.pth** - PyTorch model format used for training
+- **esp32_model.onnx** - ONNX (Open Neural Network Exchange) format for cross-platform compatibility
+- **model_tf/** - TensorFlow SavedModel format (directory with assets, variables, and graph definitions)
+- **modelnooptimized.h** - C header file containing the unoptimized quantized model for Arduino deployment
+- **modelquantized.h** - C header file containing the optimized quantized model for ESP32 deployment
+
+These different formats support the conversion pipeline from training to embedded deployment on microcontrollers.
 
 ## Installation
 
