@@ -3,8 +3,6 @@ import os
 import time
 import numpy as np
 
-# ================= CONFIGURATION =================
-# Replace with your ESP32 IP
 ESP32_IP = "192.168.1.26" 
 # Note: standard CameraWebServer uses port 81 for stream
 URL = f"http://{ESP32_IP}:81/stream"
@@ -13,7 +11,6 @@ URL = f"http://{ESP32_IP}:81/stream"
 IMG_SIZE = 96
 DATA_DIR = "dataset"
 CLASSES = ["rock", "paper", "scissors"]
-# =================================================
 
 # Create directories
 for cls in CLASSES:
