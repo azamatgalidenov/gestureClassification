@@ -82,7 +82,6 @@ Convert the TensorFlow model to float32 format for compatibility.
 
 **Purpose:**
 - Converts TensorFlow model to float32 precision
-- Prepares model for quantization in the next step
 - Ensures model weights are in the correct format
 
 **Usage:**
